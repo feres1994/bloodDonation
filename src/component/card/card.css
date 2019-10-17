@@ -1,0 +1,12 @@
+.promoting-card {
+  cursor: pointer !important;
+}
+.promoting-card:hover {
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}

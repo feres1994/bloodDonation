@@ -1,0 +1,81 @@
+.blood-hero {
+  height: 400px;
+  background-image: url("../../blood.jpg");
+  background-size: cover;
+  padding: 0 !important;
+  position: relative;
+}
+
+.blood-hero .overlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  background-color: rgba(248, 137, 162, 0.5);
+}
+
+.blood-hero h2 {
+  font-weight: bold;
+}
+.posts {
+  padding: 30px;
+  box-sizing: border-box;
+  border: 1px solid #e9e7e7;
+}
+.description-and-comment {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.description-and-comments {
+  text-align: left;
+  font-size: 13px;
+}
+.comments {
+  padding: 30px;
+  border: 1px solid #e9e8e8;
+}
+.comment,
+.description {
+  display: flex;
+}
+.description h6,
+.comment h6 {
+  margin-right: 10px;
+}
+.comment p {
+  position: relative;
+  cursor: pointer;
+}
+.reactions {
+  width: 80px;
+  position: absolute;
+  margin-left: 10px;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #e9e8e8;
+  display: flex;
+  top: 5px;
+  right: -71px;
+  background-color: white;
+  justify-content: space-around;
+  opacity: 0;
+}
+
+.comment p:hover .reactions {
+  opacity: 1;
+}
+.fa-thumbs-up:hover {
+  color: blue;
+}
+.fa-thumbs-down:hover {
+  color: blue;
+}
+.fa-heart:hover {
+  color: red;
+}

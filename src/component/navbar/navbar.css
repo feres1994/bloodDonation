@@ -1,0 +1,25 @@
+.bg-light {
+  background-color: rgba(248, 137, 162, 1) !important;
+  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+.navbar-brand a {
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+li a {
+  color: white !important;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar ul {
+    background-color: white !important;
+  }
+  li a {
+    color: #b3adad;
+  }
+}
