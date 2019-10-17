@@ -1,5 +1,6 @@
 .promoting-card {
   cursor: pointer !important;
+  position: relative;
 }
 .promoting-card:hover {
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
@@ -9,4 +10,14 @@
 }
 .collapse-content .fa.fa-share-alt:hover {
   color: #0d47a1 !important;
+}
+.like-and-number {
+  position: relative;
+}
+.number-like {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6c757d;
+  bottom: 0;
 }
