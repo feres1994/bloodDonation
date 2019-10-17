@@ -19,11 +19,11 @@ export class Post extends Component {
               <p>{post.postText}</p>
             </div>
             <div className="comments">
-              <h5>comments:</h5>
+              <h5> comments:</h5>
 
               {post.comments.map(comment => (
                 <div className="comment">
-                  <h6>{comment.username}</h6>
+                  <h6 style={{ width: "120px" }}>{comment.username} : </h6>
                   <p>
                     {comment.textComment}
                     <div className="reactions">

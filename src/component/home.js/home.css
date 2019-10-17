@@ -25,6 +25,8 @@
   padding: 30px;
   box-sizing: border-box;
   border: 1px solid #e9e7e7;
+  margin-bottom: 10px;
+  background-color: white;
 }
 .description-and-comment {
   padding: 30px;
@@ -38,6 +40,11 @@
 .comments {
   padding: 30px;
   border: 1px solid #e9e8e8;
+  max-height: 500px;
+  overflow: auto;
+}
+.comment {
+  margin-bottom: -20px;
 }
 .comment,
 .description {
@@ -83,4 +90,32 @@
   font-size: 11px;
   font-weight: bold;
   color: #a09898;
+}
+.comments h5 {
+  position: relative;
+}
+.comment h6 {
+  font-size: 13px;
+}
+.comments h5 span {
+  position: absolute;
+  bottom: -5px;
+  font-size: 12px;
+  color: gray;
+}
+
+/*********COMMENTS SCROLL BAR********/
+.comments::-webkit-scrollbar {
+  width: 5px;
+  height: 7px;
+}
+.comments::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 10px gray;
+  border-radius: 10px;
+}
+
+.comments::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #b3adad;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

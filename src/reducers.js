@@ -23,6 +23,16 @@ const initialState = [
         textComment: "thanx dude",
         time: "22/22/22",
         username: "mohamed haffez"
+      },
+      {
+        textComment: "perfect one broo <3",
+        time: "22/22/22",
+        username: "feres fatnassi"
+      },
+      {
+        textComment: "thanx dude",
+        time: "22/22/22",
+        username: "mohamed haffez"
       }
     ]
   },

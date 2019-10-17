@@ -74,6 +74,8 @@ function Card({ post }) {
             aria-controls="collapseContent"
           ></a>
           <p className="number-like">{post.numberLikes} likes</p>
+          <p className="number-comments">{post.NumberComments} comments</p>
+
           <i
             class="fas fa-share-alt text-muted float-right p-1 my-1"
             data-toggle="tooltip"

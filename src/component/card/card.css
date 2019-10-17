@@ -19,5 +19,12 @@
   font-size: 12px;
   font-weight: bold;
   color: #6c757d;
-  bottom: 0;
+  bottom: 5px;
+}
+.number-comments {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6c757d;
+  bottom: -10px;
 }
