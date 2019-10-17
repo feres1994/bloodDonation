@@ -1,0 +1,75 @@
+.request-card {
+  height: 300px;
+  width: 300px;
+  padding: 23px;
+  border: 1px solid #e9e8e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.request-card input {
+  height: 39px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #e9e8e8;
+  margin-bottom: 7px;
+  padding: 5px 17px;
+  box-sizing: border-box;
+}
+.submit-btn {
+  width: 97%;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  font-weight: bold;
+}
+
+.blood-group-container {
+  display: flex;
+}
+.blood-group-container div {
+  margin: 7px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #ccbebe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.blood-group-container div:hover {
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+.blood-type-form {
+  display: flex;
+}
+.blood-type-form p:nth-child(1) {
+  width: 120px;
+}
+.blood-type-form p:nth-child(2) {
+  color: #b3adad;
+}

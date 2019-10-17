@@ -39,7 +39,7 @@ const Header = props => {
             </NavItem>
             <NavItem>
               <NavLink>
-                <Link to="about">about us</Link>
+                <Link to="/requestforblood">blood request</Link>
               </NavLink>
             </NavItem>
             <NavItem>
