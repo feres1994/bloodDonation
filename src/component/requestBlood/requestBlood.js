@@ -4,7 +4,9 @@ import "./request.css";
 export class RequestFor extends Component {
   state = {
     bloodGroup: ["A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
-    bloodType: "select one"
+    bloodType: "select one",
+    name: "",
+    location: ""
   };
 
   changeBloodType = bloodType => {
@@ -12,8 +14,13 @@ export class RequestFor extends Component {
       bloodType: bloodType
     });
   };
+  changeInputs = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   render() {
-    const { bloodType } = this.state;
+    const { bloodType, name, location } = this.state;
     return (
       <div className="row" style={{ padding: "30px" }}>
         <div className="col-12">
@@ -22,8 +29,18 @@ export class RequestFor extends Component {
         <div className="col-lg-3">
           <div className="request-card">
             <div>
-              <input placeholder="full name" />
-              <input placeholder="location" />
+              <input
+                placeholder="full name"
+                onChange={this.changeInputs}
+                value={name}
+                name={name}
+              />
+              <input
+                placeholder="location"
+                onChange={this.changeInputs}
+                value={location}
+                name={location}
+              />
               <div className="blood-type-form">
                 <p>blood type :</p> <p>{bloodType}</p>
               </div>

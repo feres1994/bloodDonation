@@ -103,6 +103,78 @@
   font-size: 12px;
   color: gray;
 }
+.add-comment {
+  display: flex;
+}
+.add-comment div:nth-child(1) {
+  font-weight: bold;
+  padding: 7px;
+  width: 100px;
+  border: 1px solid #b3adad;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  height: 36px;
+}
+.add-comment div:nth-child(1):hover {
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  border: none;
+}
+.add-comment div:nth-child(2) {
+  flex: 1;
+  min-height: 100px;
+}
+.add-comment textarea {
+  min-height: 100px;
+  width: 100%;
+}
+.add-comment-btn-plus {
+  margin: 7px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  border: none;
+  display: flex;
+  right: -20px;
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  bottom: -13px;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+}
+.add-comment-btn-plus:hover {
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  border: none;
+  font-weight: bold;
+}
 
 /*********COMMENTS SCROLL BAR********/
 .comments::-webkit-scrollbar {

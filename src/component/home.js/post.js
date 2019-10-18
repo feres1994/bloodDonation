@@ -3,8 +3,25 @@ import { connect } from "react-redux";
 import Card from "../card/card";
 
 export class Post extends Component {
+  state = {
+    commentDisplay: "none",
+    buttonDisplay: "block"
+  };
+  changeElementDisplay = () => {
+    this.setState({
+      commentDisplay: "block",
+      buttonDisplay: "none"
+    });
+  };
+  addComment = e => {
+    this.setState({
+      commentDisplay: "none",
+      buttonDisplay: "block"
+    });
+  };
   render() {
     const { post } = this.props;
+    const { commentDisplay, buttonDisplay } = this.state;
     return (
       <div className="row posts">
         <div className="col-lg-4 p-4">
@@ -35,6 +52,23 @@ export class Post extends Component {
                   </p>
                 </div>
               ))}
+              <div className="add-comment">
+                <div
+                  style={{ display: buttonDisplay }}
+                  onClick={this.changeElementDisplay}
+                >
+                  add comment
+                </div>
+                <div style={{ position: "relative", display: commentDisplay }}>
+                  <textarea
+                    placeholder="write you comment here thne press enter..."
+                    type="text"
+                  />
+                  <span onClick={this.addComment} class="add-comment-btn-plus">
+                    +
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
