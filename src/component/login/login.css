@@ -1,0 +1,64 @@
+.my-login-container {
+  background-image: url("https://images.pexels.com/photos/161628/syringe-needle-injection-disposable-syringe-161628.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+
+  color: white;
+}
+
+.bg-tt h1 {
+  background: -webkit-linear-gradient(
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.login-overlay {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(248, 137, 162, 0.5);
+  z-index: 14444;
+}
+.bg-tt {
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 22222222222222222;
+  width: 60%;
+  padding: 20px;
+  text-align: center;
+}
+.login-input {
+  margin-bottom: 8px;
+}
+.login-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.login-button {
+  margin-top: 10px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  font-weight: bold;
+}

@@ -2,21 +2,36 @@ import React from "react";
 import Header from "./component/navbar/navbar";
 import { Switch, Route } from "react-router-dom";
 import Home from "./component/home.js/Home";
+import Login from "./component/login/login";
 import RequestFor from "./component/requestBlood/requestBlood";
 import "./App.css";
 
-function App() {
+const Routes = () => {
   return (
-    <div className="App">
+    <>
+      {" "}
       <Header />
       <div className="container-fluid" style={{ minHeight: "100vh" }}>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/requestforblood" component={RequestFor} />
         </Switch>
       </div>
-    </div>
+    </>
   );
+};
+class App extends React.Component {
+  render() {
+    console.log("********", this.props);
+    return (
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route component={Routes} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

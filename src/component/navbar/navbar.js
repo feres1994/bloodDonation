@@ -19,19 +19,19 @@ const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-
+  console.log(props);
   return (
     <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand>
-          <Link to="/">BloodMarket</Link>
+          <Link to="/home">BloodMarket</Link>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink>
-                <Link to="/">
+                <Link to="/home">
                   <i class="fas fa-home"></i>
                   Home
                 </Link>

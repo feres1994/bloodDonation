@@ -1,26 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import Moment from "react-moment";
+
 import "./card.css";
-
-function formatted_date(d) {
-  var result = "";
-
-  result +=
-    d.getFullYear() +
-    "/" +
-    (d.getMonth() + 1) +
-    "/" +
-    d.getDate() +
-    " " +
-    d.getHours() +
-    ":" +
-    d.getMinutes() +
-    ":" +
-    d.getSeconds() +
-    " " +
-    d.getMilliseconds();
-  return result;
-}
 
 function Card({ post }) {
   return (
@@ -42,7 +24,7 @@ function Card({ post }) {
 
           <p class="card-text">
             <i class="far fa-clock pr-2"></i>
-            {post.timePost}{" "}
+            <Moment>{post.timePost}</Moment>
           </p>
         </div>
       </div>
@@ -74,7 +56,7 @@ function Card({ post }) {
             aria-controls="collapseContent"
           ></a>
           <p className="number-like">{post.numberLikes} likes</p>
-          <p className="number-comments">{post.NumberComments} comments</p>
+          <p className="number-comments">{post.comments.length} comments</p>
 
           <i
             class="fas fa-share-alt text-muted float-right p-1 my-1"
