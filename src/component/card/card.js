@@ -59,13 +59,6 @@ function Card({ post }) {
           <p className="number-comments">{post.comments.length} comments</p>
 
           <i
-            class="fas fa-share-alt text-muted float-right p-1 my-1"
-            data-toggle="tooltip"
-            data-placement="top"
-            title="Share this post"
-          ></i>
-
-          <i
             class="fas fa-heart text-muted float-right p-1 my-1 mr-3"
             data-toggle="tooltip"
             data-placement="top"

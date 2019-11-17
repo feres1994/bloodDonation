@@ -3,7 +3,10 @@
 
   color: white;
 }
-
+.form-login {
+  width: 350px;
+  margin-top: 50px;
+}
 .bg-tt h1 {
   background: -webkit-linear-gradient(
     #a81976,
@@ -61,4 +64,15 @@
   );
   color: white;
   font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  .form-login {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .big-tt {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+  }
 }

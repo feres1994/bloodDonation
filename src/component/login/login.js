@@ -21,7 +21,7 @@ export class login extends Component {
         <div className="container">
           <div className="row">
             <div
-              className="col-12 bg-tt"
+              className="col-12 bg-tt big-tt"
               style={{
                 textAlign: "center",
                 display: "flex",
@@ -31,10 +31,7 @@ export class login extends Component {
             >
               <p>welcome to </p>
               <h1>INSTABlOOD</h1>
-              <form
-                className="form-group"
-                style={{ width: "350px", marginTop: "50px" }}
-              >
+              <form className="form-group form-login">
                 <input
                   className="form-control login-input"
                   placeholder="email"

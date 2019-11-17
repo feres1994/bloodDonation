@@ -9,9 +9,9 @@ export class Home extends Component {
       <>
         <div className="row">
           <div className="col-12 blood-hero">
-            <div className="overlay">
+            <div className="overlay text-focus-in">
               <h2>BLOOD DONATION</h2>
-              <p>made in tunisia</p>
+              <p className="text-flicker-in-glow">made in tunisia</p>
             </div>
           </div>
         </div>{" "}

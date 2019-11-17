@@ -26,7 +26,7 @@ export class RequestFor extends Component {
         <div className="col-12">
           <h5 style={{ textAlign: "left" }}>Request for blood</h5>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-4">
           <div className="request-card">
             <div>
               <input
@@ -45,10 +45,18 @@ export class RequestFor extends Component {
                 <p>blood type :</p> <p>{bloodType}</p>
               </div>
             </div>
+            <div className="hidden-request-blood">
+              <h6 style={{ textAlign: "left" }}>Select Blood group</h6>
+              <div className="blood-group-container">
+                {this.state.bloodGroup.map(el => (
+                  <div onClick={() => this.changeBloodType(el)}>{el}</div>
+                ))}
+              </div>
+            </div>
             <button className="submit-btn">submit</button>
           </div>
         </div>
-        <div className="col-lg-9">
+        <div className="col-lg-8 request-blood-computer-device">
           <h6 style={{ textAlign: "left" }}>Select Blood group</h6>
           <div className="blood-group-container">
             {this.state.bloodGroup.map(el => (
