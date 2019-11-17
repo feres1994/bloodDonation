@@ -20,6 +20,19 @@
   padding: 5px 17px;
   box-sizing: border-box;
 }
+.blood-type-onclick {
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  border: none;
+  font-weight: bold;
+}
 .submit-btn {
   width: 97%;
   height: 40px;

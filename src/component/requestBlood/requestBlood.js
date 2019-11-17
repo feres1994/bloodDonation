@@ -1,6 +1,33 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./request.css";
+class BloodCircle extends Component {
+  state = {
+    colored: false
+  };
+  changeColor = () => {
+    this.setState({
+      colored: true
+    });
+  };
+  render() {
+    return (
+      <div
+        onClick={() => {
+          this.props.changeBloodType(this.props.data);
+          this.changeColor();
+        }}
+        style={
+          this.state.colored && this.props.data === this.props.blood
+            ? { backgroundColor: "pink", color: "white" }
+            : {}
+        }
+      >
+        {this.props.data}
+      </div>
+    );
+  }
+}
 export class RequestFor extends Component {
   state = {
     bloodGroup: ["A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
@@ -49,7 +76,11 @@ export class RequestFor extends Component {
               <h6 style={{ textAlign: "left" }}>Select Blood group</h6>
               <div className="blood-group-container">
                 {this.state.bloodGroup.map(el => (
-                  <div onClick={() => this.changeBloodType(el)}>{el}</div>
+                  <BloodCircle
+                    data={el}
+                    changeBloodType={this.changeBloodType}
+                    blood={this.state.bloodType}
+                  />
                 ))}
               </div>
             </div>
@@ -60,7 +91,7 @@ export class RequestFor extends Component {
           <h6 style={{ textAlign: "left" }}>Select Blood group</h6>
           <div className="blood-group-container">
             {this.state.bloodGroup.map(el => (
-              <div onClick={() => this.changeBloodType(el)}>{el}</div>
+              <BloodCircle data={el} changeBloodType={this.changeBloodType} />
             ))}
           </div>
         </div>

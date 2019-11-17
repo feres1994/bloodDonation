@@ -31,7 +31,7 @@ const Header = props => {
           <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink>
-                <Link to="/home">
+                <Link to="/home" onClick={isOpen === true ? toggle : () => {}}>
                   <i class="fas fa-home"></i>
                   Home
                 </Link>
@@ -39,12 +39,15 @@ const Header = props => {
             </NavItem>
             <NavItem>
               <NavLink>
-                <Link to="/requestforblood">blood request</Link>
+                <Link
+                  to="/requestforblood"
+                  onClick={isOpen === true ? toggle : () => {}}
+                >
+                  blood request
+                </Link>
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink>SignUp</NavLink>
-            </NavItem>
+
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 person
