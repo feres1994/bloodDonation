@@ -16,7 +16,7 @@ export class login extends Component {
       return <Redirect to="/home" />;
     }
     return (
-      <div className=" my-login-container" style={{ minHeight: "100vh" }}>
+      <div className="my-login-container" style={{ minHeight: "100vh" }}>
         <div className="login-overlay"></div>
         <div className="container">
           <div className="row">

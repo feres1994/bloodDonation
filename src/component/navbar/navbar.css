@@ -16,10 +16,16 @@ li a {
 }
 
 @media screen and (max-width: 767px) {
-  .navbar ul {
-    background-color: white !important;
+  .navbar-collapse,
+  .navbar-nav {
+    z-index: 14444;
   }
-  li a {
-    color: #b3adad;
+  .navbar ul {
+    background-color: #f488a2cf !important;
+    z-index: 14444;
+    padding: 15px;
+  }
+  .navbar-nav li a {
+    color: white !important;
   }
 }
