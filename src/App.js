@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./component/home.js/Home";
 import Login from "./component/login/login";
 import RequestFor from "./component/requestBlood/requestBlood";
+import AddPost from "./component/addPost";
 import "./App.css";
 
 const Routes = () => {
@@ -12,6 +13,7 @@ const Routes = () => {
       {" "}
       <Header />
       <div className="container-fluid" style={{ minHeight: "100vh" }}>
+        <AddPost />
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/requestforblood" component={RequestFor} />

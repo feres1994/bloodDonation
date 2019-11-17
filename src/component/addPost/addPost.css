@@ -1,0 +1,44 @@
+.add-post-style {
+  margin: 7px;
+
+  border: none;
+  display: flex;
+
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  position: fixed;
+  top: 90%;
+  right: 0;
+  z-index: 50000;
+}
+.add-image-style {
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  border: none;
+  height: 40px;
+  width: 100px;
+  border-radius: 7px;
+}
