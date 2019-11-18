@@ -1,0 +1,45 @@
+.profile-image-desc {
+  padding: 7px;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+}
+.profile-image {
+  width: 150px;
+  height: 150px;
+  margin: 20px 0px;
+  border-radius: 50%;
+  border: 4px solid pink;
+  overflow: hidden;
+  background-image: url("../graphics/feres.jpg");
+  background-size: cover;
+}
+.profile-desc {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 7px;
+}
+.profile-desc div {
+  margin-bottom: 7px;
+}
+.profile-desc div span:nth-child(1) {
+  font-weight: bold;
+  margin-right: 5px;
+}
+.profile-desc div span i {
+  margin-right: 2px;
+}
+@media screen and (max-width: 767px) {
+  .profile-desc div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 3px;
+  }
+}

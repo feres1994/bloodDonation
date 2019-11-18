@@ -53,7 +53,9 @@ const Header = props => {
                 person
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Profile</DropdownItem>
+                <Link to="/profile">
+                  <DropdownItem>Profile</DropdownItem>
+                </Link>
                 <DropdownItem>settings</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>disconect</DropdownItem>

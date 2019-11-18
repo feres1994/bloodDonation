@@ -59,13 +59,11 @@ export class RequestFor extends Component {
               <input
                 placeholder="full name"
                 onChange={this.changeInputs}
-                value={name}
                 name={name}
               />
               <input
                 placeholder="location"
                 onChange={this.changeInputs}
-                value={location}
                 name={location}
               />
               <div className="blood-type-form">

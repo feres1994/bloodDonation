@@ -5,6 +5,8 @@ import Home from "./component/home.js/Home";
 import Login from "./component/login/login";
 import RequestFor from "./component/requestBlood/requestBlood";
 import AddPost from "./component/addPost";
+import Profile from "./component/profile";
+
 import "./App.css";
 
 const Routes = () => {
@@ -17,6 +19,7 @@ const Routes = () => {
         <Switch>
           <Route exact path="/home" component={Home} />
           <Route exact path="/requestforblood" component={RequestFor} />
+          <Route exact path="/profile" component={Profile} />
         </Switch>
       </div>
     </>
