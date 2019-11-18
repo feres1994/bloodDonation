@@ -1,0 +1,43 @@
+.inscription-form {
+  min-height: 100vh;
+  padding: 30px;
+}
+.inscription {
+  width: 10 0%;
+  padding: 15px;
+  min-height: 400px;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inscription-input {
+  height: 39px;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #e9e8e8;
+  margin-bottom: 7px;
+  padding: 5px 17px;
+  box-sizing: border-box;
+}
+.submit-full-container {
+  width: 100%;
+  margin: 20px 0px;
+}
+.submit-btn {
+  width: 97%;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+
+  background-image: linear-gradient(
+    to right top,
+    #a81976,
+    #b92f89,
+    #cb429c,
+    #dd54b0,
+    #ee65c4
+  );
+  color: white;
+  font-weight: bold;
+}

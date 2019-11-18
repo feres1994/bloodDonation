@@ -5,6 +5,7 @@ import Home from "./component/home.js/Home";
 import Login from "./component/login/login";
 import RequestFor from "./component/requestBlood/requestBlood";
 import AddPost from "./component/addPost";
+import Inscription from "./component/inscription/index";
 import Profile from "./component/profile";
 
 import "./App.css";
@@ -32,6 +33,7 @@ class App extends React.Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Login} />
+          <Route exact path="/inscription" component={Inscription} />
           <Route component={Routes} />
         </Switch>
       </div>

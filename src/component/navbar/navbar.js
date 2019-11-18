@@ -47,20 +47,23 @@ const Header = props => {
                 </Link>
               </NavLink>
             </NavItem>
-
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                person
-              </DropdownToggle>
-              <DropdownMenu right>
-                <Link to="/profile">
-                  <DropdownItem>Profile</DropdownItem>
+            <NavItem>
+              <NavLink>
+                <Link
+                  to="/profile"
+                  onClick={isOpen === true ? toggle : () => {}}
+                >
+                  profile
                 </Link>
-                <DropdownItem>settings</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>disconect</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink>
+                <Link to="/" onClick={isOpen === true ? toggle : () => {}}>
+                  disconect
+                </Link>
+              </NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

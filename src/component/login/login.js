@@ -13,7 +13,7 @@ export class login extends Component {
   };
   render() {
     if (this.state.redirected) {
-      return <Redirect to="/home" />;
+      return <Redirect to="/inscription" />;
     }
     return (
       <div className="my-login-container" style={{ minHeight: "100vh" }}>
