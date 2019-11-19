@@ -3,6 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./addPost.css";
 import { addPostApi } from '../../action.js';
 import { connect } from "react-redux";
+import axios from "axios"
+import { API_SERVER } from "../../constants"
 const ModalExample = props => {
   const { buttonLabel, className } = props;
 
@@ -15,8 +17,26 @@ const ModalExample = props => {
     setModal(!modal);
     var formData = new FormData();
     formData.append("uploadfile", file);
-    console.log("description ==== > ", desc)
-    addPostApi(formData,desc)
+    //    addPostApi(formData,desc)
+    axios.post(API_SERVER + "uploadfile", formData).then(res => {
+      //console.log("formData"+res.data)
+      const imgName = res.data.file
+      var user = JSON.parse(localStorage.getItem('user'));
+      const data = {
+        postImage: imgName,
+        user: user,
+        postText: desc,
+        comments: []
+      }
+      axios.post(API_SERVER + "posts", data).then(res => {
+        console.log(res.data)
+      }).catch(err => {
+        console.log(err)
+
+      })
+
+    })
+
   }
   const onChangeDesc = (e) => {
     setDesc(e.target.value);
@@ -47,7 +67,7 @@ const ModalExample = props => {
           <label for="avatar" style={{ display: "block", marginTop: "10px" }}>
             Add description
           </label>
-          <textarea placeholder="description" className="form-control" onChange={onChangeDesc}/>
+          <textarea placeholder="description" className="form-control" onChange={onChangeDesc} />
         </ModalBody>
         <ModalFooter>
           <button className="add-image-style" onClick={addPost}>

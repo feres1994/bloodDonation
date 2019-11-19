@@ -7,6 +7,22 @@ export class login extends Component {
     redirected: false
   };
   redirectToHome = () => {
+    const user = {
+      _id :	"5cc2756451395d4ed3b71365",
+      id:	"2725426277471383",
+      email:	"piratage4@hotmail.com",
+      number:	"99282334",
+      firstname	:"Achref",
+      lastname	:"Meghirbi",
+      url	:"http://graph.facebook.com/2725426277471383/picture?type=large",
+      bloodgroup:	"A+",
+      gender:	"male",
+      answer:	0,
+      request:	0,
+      rate:	0,
+      __v	:0
+    }
+    localStorage.setItem('user', JSON.stringify(user));
     this.setState({
       redirected: true
     });
