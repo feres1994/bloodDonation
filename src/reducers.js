@@ -1,73 +1,30 @@
-const initialState = [
-  {
-    postImage: "",
-    type: {
-      type: Number,
-      default: 1
-    },
-    user: {
-      firstname: "achref",
-      lastname: "mghirbi",
-
-      url: {
-        type: String
-      }
-    },
-    postText:
-      "this the first time i m using this plateform and i found it amazing and really greatful",
-    timePost: Date.now(),
-    numberLikes: 113,
-    NumberComments: 2,
-    comments: [
-      {
-        textComment: "thanx dude",
-        time: "22/22/22",
-        username: "mohamed haffez"
-      },
-      {
-        textComment: "perfect one broo <3",
-        time: "22/22/22",
-        username: "feres fatnassi"
-      },
-      {
-        textComment: "thanx dude",
-        time: "22/22/22",
-        username: "mohamed haffez"
-      }
-    ]
-  },
-  {
-    postImage: "",
-    type: {
-      type: Number,
-      default: 1
-    },
-    user: {
-      firstname: "feres",
-      lastname: "fatnassi",
-
-      url: {
-        type: String
-      }
-    },
-    postText:
-      "this the first time i m using this plateform and i found it amazing and really greatful",
-    timePost: Date.now(),
-    numberLikes: 113,
-    NumberComments: 2,
-    comments: [
-      {
-        textComment: "thanx greaaaat",
-        time: "22/22/22",
-        username: "achref mghirbi"
-      }
-    ]
-  }
-];
+const initialState = {
+  loading : true
+};
 
 export function postsReducer(state = initialState, action) {
-  if (action.type === "GET_POSTS") {
-    return action.payload;
+  console.log('action.type',action.type)
+
+  switch (action.type) {
+    case 'GET_POSTS':
+       return { posts : action.payload , loading : false};
+    case 'LOADING_POST':
+      return { loading: action.payload };
+    default:
+       return state;
   }
-  return state;
+}
+export function commentReducer(state = {}, action) {
+  console.log('commentReducer === > ',action.type)
+
+  switch (action.type) {
+    case 'ADD_COMMENT_REQUEST':
+      return { loading : true, comment : action.payload};
+    case 'ADD_COMMENT_FAILED':
+      return { loading : false, status : 200};
+    case 'ADD_COMMENT_FAILED':
+      return { loading : false, status : 300 };
+    default:
+       return state;
+  }
 }

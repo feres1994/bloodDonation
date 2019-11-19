@@ -1,12 +1,30 @@
 import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./addPost.css";
+import { addPostApi } from '../../action.js';
+import { connect } from "react-redux";
 const ModalExample = props => {
   const { buttonLabel, className } = props;
 
   const [modal, setModal] = useState(false);
+  const [desc, setDesc] = useState("med");
+  const [file, setFile] = useState(null);
 
   const toggle = () => setModal(!modal);
+  const addPost = e => {
+    setModal(!modal);
+    var formData = new FormData();
+    formData.append("uploadfile", file);
+    console.log("description ==== > ", desc)
+    addPostApi(formData,desc)
+  }
+  const onChangeDesc = (e) => {
+    setDesc(e.target.value);
+  }
+
+  const onAddFile = e => {
+    setFile(e.target.files[0])
+  }
 
   return (
     <div>
@@ -21,17 +39,18 @@ const ModalExample = props => {
           </label>
           <input
             type="file"
-            id="avatar"
+            id="file"
             name="avatar"
             accept="image/png, image/jpeg"
+            onChange={onAddFile}
           />
           <label for="avatar" style={{ display: "block", marginTop: "10px" }}>
-            add description
+            Add description
           </label>
-          <textarea placeholder="description" className="form-control" />
+          <textarea placeholder="description" className="form-control" onChange={onChangeDesc}/>
         </ModalBody>
         <ModalFooter>
-          <button className="add-image-style" onClick={toggle}>
+          <button className="add-image-style" onClick={addPost}>
             Add post
           </button>{" "}
           <Button color="secondary" onClick={toggle}>
@@ -43,4 +62,15 @@ const ModalExample = props => {
   );
 };
 
-export default ModalExample;
+
+const mapStateToProps = state => {
+  return {
+  };
+};
+
+const mapDispatchToProps = { addPost: addPostApi }
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalExample);

@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import Moment from "react-moment";
-
+import TimeAgo from 'react-timeago'
 import "./card.css";
-
+import {PUBLIC_DIR} from '../../constants'
 function Card({ post }) {
   return (
     <div className="card promoting-card">
       <div className="card-body d-flex flex-row">
         <img
-          src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
+          src={post.user.url}
           class="rounded-circle mr-3"
           height="50px"
           width="50px"
@@ -24,14 +24,15 @@ function Card({ post }) {
 
           <p class="card-text">
             <i class="far fa-clock pr-2"></i>
-            <Moment>{post.timePost}</Moment>
+            {/* <Moment>{post.timePost}</Moment> */}
+            <TimeAgo date={post.timePost} />
           </p>
         </div>
       </div>
       <div className="view overlay">
         <img
           class="card-img-top rounded-0"
-          src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg"
+          src={PUBLIC_DIR+post.postImage}
           alt="Card image cap"
         />
         <a href="#!">

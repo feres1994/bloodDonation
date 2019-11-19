@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Card from "../card/card";
+import { addCommentAPI } from '../../action.js';
 
 export class Post extends Component {
   state = {
     commentDisplay: "none",
-    buttonDisplay: "block"
+    buttonDisplay: "block",
+    commentTxt : ''
   };
   changeElementDisplay = () => {
     this.setState({
@@ -17,6 +19,20 @@ export class Post extends Component {
     this.setState({
       commentDisplay: "none",
       buttonDisplay: "block"
+    });
+    let data = {
+      "comments":{
+        "textComment": this.state.commentTxt,
+            "time": "now",
+            "username": this.props.post.user.firstname +' '+ this.props.post.user.lastname
+      }
+    }
+    this.props.addComment('posts/'+this.props.post._id,data)
+
+  };
+  changeInputs = e => {
+    this.setState({
+      [e.target.name]: e.target.value
     });
   };
   render() {
@@ -36,8 +52,7 @@ export class Post extends Component {
               <p>{post.postText}</p>
             </div>
             <div className="comments">
-              <h5> comments:</h5>
-
+              <h5>Comments:</h5>
               {post.comments.map(comment => (
                 <div className="comment">
                   <h6 style={{ width: "120px" }}>{comment.username} : </h6>
@@ -63,6 +78,8 @@ export class Post extends Component {
                   <textarea
                     placeholder="write you comment here thne press enter..."
                     type="text"
+                    onChange={this.changeInputs}
+                    name={'commentTxt'}
                   />
                   <span onClick={this.addComment} class="add-comment-btn-plus">
                     +
@@ -79,7 +96,7 @@ export class Post extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { addComment: addCommentAPI }
 
 export default connect(
   mapStateToProps,
