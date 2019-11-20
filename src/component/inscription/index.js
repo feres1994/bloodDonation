@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.css";
 import { Redirect } from "react-router-dom";
+import Pusher from 'pusher-js';
 
 class Inscription extends React.Component {
   state = {
@@ -17,7 +18,10 @@ class Inscription extends React.Component {
     });
   };
   SubmitInscription = () => {
+     // connect to pusher
+     
     this.setState({
+      
       redirectingToHome: true
     });
   };

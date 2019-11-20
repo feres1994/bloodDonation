@@ -2,32 +2,49 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./login.css";
+import FacebookLogin from 'react-facebook-login';
+
+import GoogleLogin from 'react-google-login';
 export class login extends Component {
   state = {
     redirected: false
   };
   redirectToHome = () => {
     const user = {
-      _id :	"5cc2756451395d4ed3b71365",
-      id:	"2725426277471383",
-      email:	"piratage4@hotmail.com",
-      number:	"99282334",
-      firstname	:"Achref",
-      lastname	:"Meghirbi",
-      url	:"http://graph.facebook.com/2725426277471383/picture?type=large",
-      bloodgroup:	"A+",
-      gender:	"male",
-      answer:	0,
-      request:	0,
-      rate:	0,
-      __v	:0
+      _id: "5cc2756451395d4ed3b71365",
+      id: "2725426277471383",
+      email: "piratage4@hotmail.com",
+      number: "99282334",
+      firstname: "Achref",
+      lastname: "Meghirbi",
+      url: "http://graph.facebook.com/2725426277471383/picture?type=large",
+      bloodgroup: "A+",
+      gender: "male",
+      answer: 0,
+      request: 0,
+      rate: 0,
+      __v: 0
     }
     localStorage.setItem('user', JSON.stringify(user));
     this.setState({
       redirected: true
     });
   };
+
   render() {
+
+    const responseFacebook = (response) => {
+      console.log(response);
+    }
+
+    const responseGoogle = (response) => {
+      console.log(response);
+    }
+    const failGoogle = (response,des) => {
+      console.log(response);
+      console.log(des);
+    }
+
     if (this.state.redirected) {
       return <Redirect to="/inscription" />;
     }
@@ -48,7 +65,23 @@ export class login extends Component {
               <p>welcome to </p>
               <h1>INSTABlOOD</h1>
               <form className="form-group form-login">
-                <input
+                <FacebookLogin
+                  appId="217447735815875" //APP ID NOT CREATED YET
+                  fields="name,email,picture"
+                  callback={responseFacebook}
+                />
+                <br />
+                <br />
+
+
+                <GoogleLogin
+                  clientId="630892663768-lsdnql7l89tt8661t9itonvsbd3mpuar.apps.googleusercontent.com" 
+                  buttonText="LOGIN WITH GOOGLE"
+                  onSuccess={responseGoogle}
+                  onFailure={failGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+                {/* <input
                   className="form-control login-input"
                   placeholder="email"
                 ></input>
@@ -62,8 +95,9 @@ export class login extends Component {
                     onClick={this.redirectToHome}
                   >
                     Login
-                  </button>
+                  </button> 
                 </div>
+                */}
               </form>
             </div>
           </div>

@@ -7,7 +7,6 @@ import RequestFor from "./component/requestBlood/requestBlood";
 import AddPost from "./component/addPost";
 import Inscription from "./component/inscription/index";
 import Profile from "./component/profile";
-
 import "./App.css";
 
 const Routes = () => {
@@ -27,6 +26,11 @@ const Routes = () => {
   );
 };
 class App extends React.Component {
+  componentDidMount(){
+    Notification.requestPermission();
+  }
+  
+  
   render() {
     console.log("********", this.props);
     return (
