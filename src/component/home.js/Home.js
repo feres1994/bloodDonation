@@ -7,8 +7,8 @@ import Pusher from 'pusher-js';
 import { getPostFromApi } from '../../action.js';
 
 export class Home extends Component {
-  
-  componentDidMount(){
+
+  componentDidMount() {
     this.props.getPosts('http://127.0.0.1:8888/api/posts')
   }
   constructor(props) {
@@ -17,70 +17,85 @@ export class Home extends Component {
       ignore: true,
       title: ''
     };
+    var groupname = ""
+    const user = JSON.parse(localStorage.getItem("user"))
+    const bloodgroup = user.bloodgroup
+    switch (bloodgroup) {
+      case "A+": groupname = "AP"
+      case "O+": groupname = "OP"
+      case "B+": groupname = "BP"
+      case "AB+": groupname = "ABP"
+      case "A-": groupname = "AM"
+      case "O-": groupname = "OM"
+      case "B-": groupname = "BM"
+      case "AB-": groupname = "ABM"
+    }
+
     const pusher = new Pusher("82be38e95b2679156d2e", {
       cluster: 'mt1',
       encrypted: true
-     });
-  
-    const posts_channel = pusher.subscribe('request-channel');
+    });
+
+    const posts_channel = pusher.subscribe("bloodrequest");
     posts_channel.bind("new-request", data => {
-      this.handleButtonClick()
+      console.log("data.bloodType<===>"+groupname)
+      console.log(data)
+      if (data.notif.bloodType.includes(groupname)) {
+        this.handleButtonClick(data.notif)
+      }
     }, this);
   }
 
-  
-
-
-  handlePermissionGranted(){
+  handlePermissionGranted() {
     console.log('Permission Granted');
     this.setState({
       ignore: false
     });
   }
-  handlePermissionDenied(){
+  handlePermissionDenied() {
     console.log('Permission Denied');
     this.setState({
       ignore: true
     });
   }
-  handleNotSupported(){
+  handleNotSupported() {
     console.log('Web Notification not Supported');
     this.setState({
       ignore: true
     });
   }
 
-  handleNotificationOnClick(e, tag){
+  handleNotificationOnClick(e, tag) {
     console.log(e, 'Notification clicked tag:' + tag);
   }
 
-  handleNotificationOnError(e, tag){
+  handleNotificationOnError(e, tag) {
     console.log(e, 'Notification error tag:' + tag);
   }
 
-  handleNotificationOnClose(e, tag){
+  handleNotificationOnClose(e, tag) {
     console.log(e, 'Notification closed tag:' + tag);
   }
 
-  handleNotificationOnShow(e, tag){
+  handleNotificationOnShow(e, tag) {
     this.playSound();
     console.log(e, 'Notification shown tag:' + tag);
   }
 
-  playSound(filename){
+  playSound(filename) {
     document.getElementById('sound').play();
   }
 
-  handleButtonClick() {
+  handleButtonClick(data) {
 
-    if(this.state.ignore) {
+    if (this.state.ignore) {
       return;
     }
 
     const now = Date.now();
 
-    const title = 'React-Web-Notification' + now;
-    const body = 'Hello' + new Date();
+    const title = data.user.firstname + " " + data.user.lastname;
+    const body = "For Who would like to support us. " + data.bloodgroup + " blood type is needed. Please Contact us";
     const tag = now;
     const icon = 'http://mobilusoss.github.io/react-web-notification/example/Notifications_button_24.png';
     // const icon = 'http://localhost:3000/Notifications_button_24.png';
@@ -102,18 +117,18 @@ export class Home extends Component {
   }
 
   handleButtonClick2() {
-    this.props.swRegistration.getNotifications({}).then(function(notifications) {
+    this.props.swRegistration.getNotifications({}).then(function (notifications) {
       console.log(notifications);
     });
   }
   render() {
-    const { posts,loading } = this.props.posts;
+    const { posts, loading } = this.props.posts;
     if (loading) {
       return <h1>Loading</h1>
     }
-      return (
-        <>
-         <Notification
+    return (
+      <>
+        <Notification
           ignore={this.state.ignore && this.state.title !== ''}
           notSupported={this.handleNotSupported.bind(this)}
           onPermissionGranted={this.handlePermissionGranted.bind(this)}
@@ -132,35 +147,35 @@ export class Home extends Component {
           <source src='../../sound.ogg' type='audio/ogg' />
           <embed hidden={true} autostart='false' loop={false} src='../../sound.mp3' />
         </audio>
-          <div className="row">
-            <div className="col-12 blood-hero">
-              <div className="overlay text-focus-in">
-                <h2>BLOOD DONATION</h2>
-                <p className="text-flicker-in-glow">made in tunisia</p>
-              </div>
-            </div>
-          </div>{" "}
-          <div
-            className="row "
-            style={{ padding: "30px", boxSizing: "border-box" }}
-          >
-            <div className="col-12">
-              {posts.map(el => (
-                <Post post={el} />
-              ))}
+        <div className="row">
+          <div className="col-12 blood-hero">
+            <div className="overlay text-focus-in">
+              <h2>BLOOD DONATION</h2>
+              <p className="text-flicker-in-glow">made in tunisia</p>
             </div>
           </div>
-        </>
-      )
-    
-    
+        </div>{" "}
+        <div
+          className="row "
+          style={{ padding: "30px", boxSizing: "border-box" }}
+        >
+          <div className="col-12">
+            {posts.map(el => (
+              <Post post={el} />
+            ))}
+          </div>
+        </div>
+      </>
+    )
+
+
   }
 }
 
 const mapStateToProps = state => {
   return {
     posts: state.posts,
-    loading : state.loading
+    loading: state.loading
 
   };
 };

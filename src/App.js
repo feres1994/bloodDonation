@@ -8,6 +8,8 @@ import AddPost from "./component/addPost";
 import Inscription from "./component/inscription/index";
 import Profile from "./component/profile";
 import "./App.css";
+import Notifications, {notify} from 'react-notify-toast';
+import Map from "./component/map/map"
 
 const Routes = () => {
   return (
@@ -20,6 +22,8 @@ const Routes = () => {
           <Route exact path="/home" component={Home} />
           <Route exact path="/requestforblood" component={RequestFor} />
           <Route exact path="/profile" component={Profile} />
+          <Route exact path="/map" component={Map} />
+
         </Switch>
       </div>
     </>
@@ -35,6 +39,7 @@ class App extends React.Component {
     console.log("********", this.props);
     return (
       <div className="App">
+                  <Notifications />
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/inscription" component={Inscription} />

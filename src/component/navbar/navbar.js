@@ -59,8 +59,10 @@ const Header = props => {
             </NavItem>
             <NavItem>
               <NavLink>
-                <Link to="/" onClick={isOpen === true ? toggle : () => {}}>
-                  disconect
+                <Link to="/" onClick={() => {
+                  localStorage.removeItem('isLogin')
+                }}>
+                  Logout
                 </Link>
               </NavLink>
             </NavItem>

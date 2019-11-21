@@ -3,38 +3,36 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import "./login.css";
 import FacebookLogin from 'react-facebook-login';
-
 import GoogleLogin from 'react-google-login';
+
+
+import { LoginAPI } from '../../action.js';
+
+
 export class login extends Component {
   state = {
     redirected: false
   };
   redirectToHome = () => {
-    const user = {
-      _id: "5cc2756451395d4ed3b71365",
-      id: "2725426277471383",
-      email: "piratage4@hotmail.com",
-      number: "99282334",
-      firstname: "Achref",
-      lastname: "Meghirbi",
-      url: "http://graph.facebook.com/2725426277471383/picture?type=large",
-      bloodgroup: "A+",
-      gender: "male",
-      answer: 0,
-      request: 0,
-      rate: 0,
-      __v: 0
-    }
-    localStorage.setItem('user', JSON.stringify(user));
     this.setState({
       redirected: true
     });
   };
 
   render() {
-
     const responseFacebook = (response) => {
-      console.log(response);
+      const fullname = response.name.split(' ')
+      const user = {
+        id: response.id,
+        email: response.email,
+        number: "",
+        firstname: fullname[0],
+        lastname: fullname[1],
+        url: response.picture.data.url,
+        bloodgroup: "",
+        gender: "",
+      }
+     this.props.login(user)
     }
 
     const responseGoogle = (response) => {
@@ -45,8 +43,13 @@ export class login extends Component {
       console.log(des);
     }
 
-    if (this.state.redirected) {
+ 
+
+    if (localStorage.getItem('isLogin') == "1") {
       return <Redirect to="/inscription" />;
+    }
+    if (localStorage.getItem('isLogin') == "2") {
+      return <Redirect to="/home" />;
     }
     return (
       <div className="my-login-container" style={{ minHeight: "100vh" }}>
@@ -107,9 +110,12 @@ export class login extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  user: state.user,
 
-const mapDispatchToProps = {};
+});
+
+const mapDispatchToProps = { login: LoginAPI }
 
 export default connect(
   mapStateToProps,

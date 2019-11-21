@@ -78,3 +78,89 @@ export const addCommentAPI = (path,data) => {
     });
   };
 };
+
+
+/* USER */
+
+const LoginFailed = payload => {
+return {
+  type: "LOGIN_FAILED",
+  payload
+};
+};
+const LoginSuccess = payload => {
+return {
+  type: "LOGIN_SUCCESS",
+  payload
+};
+};
+const SignupSuccess = payload => {
+  return {
+    type: "SIGNUP_SUCCESS",
+    payload
+  };
+  };
+
+  const SignupFailed = payload => {
+    return {
+      type: "SIGNUP_FAILED",
+      payload
+    };
+    };
+
+export const LoginAPI = (user) => {
+  return dispatch => {
+    axios.get(API_SERVER+'/donor/'+user.id).then(res => {
+      user.isSubscribed = res.data.data
+      if (user.isSubscribed){
+        localStorage.setItem('isLogin',"2");
+      }else{
+        localStorage.setItem('isLogin',"1");
+
+      }
+      localStorage.setItem('user', JSON.stringify(user));
+      dispatch(LoginSuccess(user))
+    }).catch(err => {
+      console.log("error "+err)
+      dispatch(LoginFailed(err));
+    });
+  };
+};
+export const signupAPI = (user) => {
+  return dispatch => {
+    axios.post(API_SERVER+'/donor',user).then(res => {
+      const user =  res.data.data
+      user.isSubscribed = true
+      localStorage.setItem('isLogin',"2");
+      localStorage.setItem('user', JSON.stringify(user));
+      dispatch(SignupSuccess(user))
+    }).catch(err => {
+      dispatch(SignupFailed(err));
+    });
+  };
+};
+
+/** REQUEST BLOOD */
+
+const AddRequestFailed = payload => {
+  return {
+    type: "ADD_REQUEST_FAILED",
+    payload
+  };
+  };
+
+  const AddRequestSuccess = payload => {
+    return {
+      type: "ADD_REQUEST_SUCCESS",
+      payload
+    };
+    };
+export const AddRequestAPI = (params) => {
+      return dispatch => {
+        axios.post(API_SERVER+'/request',params).then(res => {
+          dispatch(AddRequestSuccess(res.data))
+        }).catch(err => {
+          dispatch(AddRequestFailed(err));
+        });
+      };
+    };
