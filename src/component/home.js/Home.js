@@ -9,7 +9,7 @@ import { getPostFromApi } from '../../action.js';
 export class Home extends Component {
 
   componentDidMount() {
-    this.props.getPosts('http://127.0.0.1:8888/api/posts')
+    this.props.getPosts('https://blooddonation-ws.herokuapp.com/api/posts')
   }
   constructor(props) {
     super(props);
